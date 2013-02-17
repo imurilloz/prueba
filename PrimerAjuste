@@ -13,4 +13,17 @@ int main(int argc, char *argv[]) {
     int *tamamemo= new int [nproce];
     int *dirmemoA= new int [nproce];
     for(int i=1;i<=nproce;i++){
-       
+        *(tamaproce+i)=rand()%100;
+        *(tamamemo+i)=rand()%100;
+        *(dirmemo+i)=rand()%10000;
+        if(*(tamaproce+i)==0){
+            *(tamaproce+i)=1;
+        }
+        if(*(tamamemo+i)==0){
+            *(tamamemo+i)=1;
+        }
+        if(*(dirmemo+i)==0){
+            *(dirmemo+i)=1;
+        }
+    }
+   
