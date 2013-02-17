@@ -25,5 +25,34 @@ int main(int argc, char *argv[]) {
         if(*(dirmemo+i)==0){
             *(dirmemo+i)=1;
         }
+    } cout<<"Proceso\t"<<"Tamanio de memoria\t"<<endl;
+    for(int i=1;i<=nproce;i++){
+        cout<<i<<"\t"<<*(tamaproce+i)<<endl;
     }
+    cout<<"Direccion de Memoria\t"<<"Tamanio de memoria\t"<<endl;
+    for(int i=1;i<=nproce;i++){
+        cout<<*(dirmemo+i)<<"\t\t\t"<<*(tamamemo+i)<<endl;
+    }
+    for(int i=1;i<=nproce;i++){
+        for(int j=1;j<=nproce;j++){
+            if(*(tamaproce+i)<=*(tamamemo+j)){
+                *(dirmemoA+i)=*(dirmemo+j);
+                *(tamamemo+j)=0;
+                j=nproce+1;
+            }else{
+                *(dirmemoA+i)=0;
+            }
+        }
+    }
+    cout<<"Proceso\t"<<"Tamanio de memoria\t"<<"Direccion de Memoria"<<endl;
+    for(int i=1;i<=nproce;i++){
+        cout<<i<<"\t"<<*(tamaproce+i)<<"\t\t\t";
+		if (*(dirmemoA+i)==NULL){
+			cout<<"Bloqueado"<<endl;
+		}else{
+			cout<<*(dirmemoA+i)<<endl;
+		}
+    }
+}
+
    
